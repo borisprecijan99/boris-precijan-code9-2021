@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/backend/auth-service/auth-service.iml" filepath="$PROJECT_DIR$/backend/auth-service/auth-service.iml" />
       <module fileurl="file://$PROJECT_DIR$/backend/discovery-server/discovery-server.iml" filepath="$PROJECT_DIR$/backend/discovery-server/discovery-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/tennis-court-service/tennis-court-service.iml" filepath="$PROJECT_DIR$/backend/tennis-court-service/tennis-court-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/tennis-player-service/tennis-player-service.iml" filepath="$PROJECT_DIR$/backend/tennis-player-service/tennis-player-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/frontend/tennis-scheduler-application/tennis-scheduler-application.iml" filepath="$PROJECT_DIR$/frontend/tennis-scheduler-application/tennis-scheduler-application.iml" />
+      <module fileurl="file://$PROJECT_DIR$/backend/timeslot-service/timeslot-service.iml" filepath="$PROJECT_DIR$/backend/timeslot-service/timeslot-service.iml" />
     </modules>
   </component>
 </project>

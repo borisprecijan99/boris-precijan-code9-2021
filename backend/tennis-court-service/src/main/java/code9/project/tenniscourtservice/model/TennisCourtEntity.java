@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tennis_court", schema = "tennis_courts")
 public class TennisCourtEntity {
+
     private String name;
     private int id;
 

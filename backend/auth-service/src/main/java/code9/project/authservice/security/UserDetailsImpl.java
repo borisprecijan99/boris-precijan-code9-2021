@@ -10,25 +10,25 @@ import java.util.List;
 
 public class UserDetailsImpl implements UserDetails {
 
-    private UserEntity user;
+    private UserEntity userEntity;
 
-    public UserDetailsImpl(UserEntity user) {
-        this.user = user;
+    public UserDetailsImpl(UserEntity userEntity) {
+        this.userEntity = userEntity;
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return List.of(new SimpleGrantedAuthority("ROLE_" + user.getRole().getName()));
+        return List.of(new SimpleGrantedAuthority("ROLE_" + userEntity.getRole().getName()));
     }
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return userEntity.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return user.getUsername();
+        return userEntity.getUsername();
     }
 
     @Override

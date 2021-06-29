@@ -8,7 +8,7 @@ import java.util.List;
 public class RoleEntity {
     private int id;
     private String name;
-    private List<UserEntity> users;
+    private List<UserEntity> userEntityList;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,12 +51,12 @@ public class RoleEntity {
         return result;
     }
 
-    @OneToMany(mappedBy = "role")
+    @OneToMany(mappedBy = "roleEntity")
     public List<UserEntity> getUsers() {
-        return users;
+        return userEntityList;
     }
 
-    public void setUsers(List<UserEntity> users) {
-        this.users = users;
+    public void setUsers(List<UserEntity> userEntityList) {
+        this.userEntityList = userEntityList;
     }
 }

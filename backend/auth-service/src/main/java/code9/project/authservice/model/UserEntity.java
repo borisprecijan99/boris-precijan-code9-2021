@@ -10,7 +10,7 @@ public class UserEntity {
     private String lastName;
     private String username;
     private String password;
-    private RoleEntity role;
+    private RoleEntity roleEntity;
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -92,10 +92,10 @@ public class UserEntity {
     @ManyToOne
     @JoinColumn(name = "role_id", referencedColumnName = "id", nullable = false)
     public RoleEntity getRole() {
-        return role;
+        return roleEntity;
     }
 
-    public void setRole(RoleEntity role) {
-        this.role = role;
+    public void setRole(RoleEntity roleEntity) {
+        this.roleEntity = roleEntity;
     }
 }

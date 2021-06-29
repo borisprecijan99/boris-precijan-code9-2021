@@ -2,9 +2,9 @@ package code9.project.timeslotservice.service;
 
 import code9.project.timeslotservice.dto.TimeslotDto;
 import code9.project.timeslotservice.mapper.TimeslotMapper;
+import code9.project.timeslotservice.model.PaidForTennisPlayerEntity;
 import code9.project.timeslotservice.model.TimeslotEntity;
 import code9.project.timeslotservice.repository.PaidForTennisPlayerRepository;
-import code9.project.timeslotservice.repository.PaymentMethodRepository;
 import code9.project.timeslotservice.repository.TimeslotRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,9 +23,6 @@ public class TimeslotServiceImpl implements TimeslotService {
 
     @Autowired
     private PaidForTennisPlayerRepository paidForTennisPlayerRepository;
-
-    @Autowired
-    private PaymentMethodRepository paymentMethodRepository;
 
     @Override
     public boolean addTimeslot(TimeslotEntity timeslotEntity) {
@@ -48,9 +45,22 @@ public class TimeslotServiceImpl implements TimeslotService {
         }
     }
 
-    private boolean isTimeToPay(TimeslotEntity timeslotEntity) {
-        int tennisPlayerId = timeslotEntity.getTennisPlayerId();
-        return timeslotRepository.countTimeslotEntityByTennisPlayerId(tennisPlayerId) >= 5;
+    private boolean isTimeToPay(int tennisPlayerId) {
+        return timeslotRepository.countTimeslotEntityByTennisPlayerId(tennisPlayerId) == 5;
+    }
+
+    @Override
+    public int payForTennisPlayer(PaidForTennisPlayerEntity paidForTennisPlayerEntity) {
+        try {
+            if (isTimeToPay(paidForTennisPlayerEntity.getTennisPlayerId())) {
+                paidForTennisPlayerRepository.save(paidForTennisPlayerEntity);
+                return 10;
+            } else {
+                return 0;
+            }
+        } catch (Exception e) {
+            return 0;
+        }
     }
 
     @Override

@@ -37,7 +37,8 @@ public class TimeslotController {
 
     @PostMapping(value = "payForTennisPlayer")
     public ResponseEntity<Integer> payForTennisPlayer(@RequestBody PaidForTennisPlayerEntity paidForTennisPlayerEntity) {
-        return ResponseEntity.ok(10);
+        int amountOfMoney = timeslotService.payForTennisPlayer(paidForTennisPlayerEntity);
+        return ResponseEntity.ok(amountOfMoney);
     }
 
     @PreAuthorize(value = "@timeslotController.isLoggedIn()")

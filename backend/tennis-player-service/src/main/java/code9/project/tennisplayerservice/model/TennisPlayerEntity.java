@@ -1,27 +1,15 @@
 package code9.project.tennisplayerservice.model;
 
 import javax.persistence.*;
-/*import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;*/
 import java.time.LocalDate;
 
 @Entity
 @Table(name = "tennis_player", schema = "tennis_players")
 public class TennisPlayerEntity {
     private int id;
-
-    //@NotNull(message = "Tennis player's first name mustn't be null")
-    //@Pattern(regexp = "[A-Z][a-z]+", message = "Tennis player's first name doesn't meet regular expression")
     private String firstName;
-
-    //@NotNull(message = "Tennis player's last name mustn't be null")
     private String lastName;
-
-    //@NotNull
     private LocalDate dateOfBirth;
-
-    //@NotNull(message = "Tennis player's email mustn't be null")
-    //@Pattern(regexp = "", message = "Tennis player's email doesn't meet regular expression")
     private String email;
 
     @Id
