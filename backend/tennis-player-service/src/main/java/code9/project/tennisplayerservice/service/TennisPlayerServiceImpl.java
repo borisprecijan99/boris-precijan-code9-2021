@@ -19,8 +19,13 @@ public class TennisPlayerServiceImpl implements TennisPlayerService {
     private TennisPlayerRepository tennisPlayerRepository;
 
     @Override
-    public TennisPlayerDto addTennisPlayer(TennisPlayerEntity tennisPlayerEntity) {
-        return tennisPlayerMapper.toTennisPlayerDto(tennisPlayerRepository.save(tennisPlayerEntity));
+    public boolean addTennisPlayer(TennisPlayerEntity tennisPlayerEntity) {
+        try {
+            tennisPlayerRepository.save(tennisPlayerEntity);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override

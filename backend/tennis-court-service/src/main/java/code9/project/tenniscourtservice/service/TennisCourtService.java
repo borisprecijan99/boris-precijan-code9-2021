@@ -6,7 +6,7 @@ import code9.project.tenniscourtservice.model.TennisCourtEntity;
 import java.util.List;
 
 public interface TennisCourtService {
-    TennisCourtDto addTennisCourt(TennisCourtEntity tennisCourtEntity);
+    boolean addTennisCourt(TennisCourtEntity tennisCourtEntity);
     List<TennisCourtDto> getAllTennisCourts();
     boolean removeTennisCourt(int tennisCourtId);
 }

@@ -19,8 +19,13 @@ public class TennisCourtServiceImpl implements TennisCourtService {
     private TennisCourtMapper tennisCourtMapper;
 
     @Override
-    public TennisCourtDto addTennisCourt(TennisCourtEntity tennisCourtEntity) {
-        return tennisCourtMapper.toTennisCourtDto(tennisCourtRepository.save(tennisCourtEntity));
+    public boolean addTennisCourt(TennisCourtEntity tennisCourtEntity) {
+        try {
+            tennisCourtRepository.save(tennisCourtEntity);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
     }
 
     @Override

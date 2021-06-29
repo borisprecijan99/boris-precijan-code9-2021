@@ -4,6 +4,7 @@ import code9.project.tenniscourtservice.dto.TennisCourtDto;
 import code9.project.tenniscourtservice.model.TennisCourtEntity;
 import code9.project.tenniscourtservice.service.AuthService;
 import code9.project.tenniscourtservice.service.TennisCourtService;
+import code9.project.tenniscourtservice.service.TimeslotService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +23,9 @@ public class TennisCourtController {
     @Autowired
     private AuthService authService;
 
+    @Autowired
+    private TimeslotService timeslotService;
+
     public boolean isLoggedIn() {
         try {
             return authService.isLoggedIn().getBody();
@@ -31,8 +35,8 @@ public class TennisCourtController {
     }
 
     @PreAuthorize(value = "@tennisCourtController.isLoggedIn()")
-    @PostMapping(value = "add", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<TennisCourtDto> addTennisCourt(@RequestBody TennisCourtEntity tennisCourt) {
+    @PostMapping(value = "add")
+    public ResponseEntity<Boolean> addTennisCourt(@RequestBody TennisCourtEntity tennisCourt) {
         return ResponseEntity.ok(tennisCourtService.addTennisCourt(tennisCourt));
     }
 
@@ -44,6 +48,9 @@ public class TennisCourtController {
     @PreAuthorize(value = "@tennisCourtController.isLoggedIn()")
     @DeleteMapping(value = "remove/{id}")
     public ResponseEntity<Boolean> removeTennisCourt(@PathVariable("id") int tennisCourtId) {
+        timeslotService.getAllTimeslots().getBody().stream()
+                .filter(ts -> ts.getTennisCourtId() == tennisCourtId)
+                .forEach(ts -> timeslotService.removeTimeslot(ts.getId()));
         return ResponseEntity.ok(tennisCourtService.removeTennisCourt(tennisCourtId));
     }
 
