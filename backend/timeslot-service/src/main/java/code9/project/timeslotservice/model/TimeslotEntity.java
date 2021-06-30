@@ -1,30 +1,17 @@
 package code9.project.timeslotservice.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
 @Table(name = "timeslot", schema = "timeslots")
 public class TimeslotEntity {
-    @Positive
     private int tennisPlayerId;
-
-    @Positive
     private int tennisCourtId;
-
-    @NotNull
-    @FutureOrPresent
     private LocalDate dateOfReservation;
-
-    @Min(value = 30)
-    @Max(value = 120)
     private int duration;
-
-    @NotNull
     private LocalTime timeOfReservation;
-
     private int id;
 
     @Basic
