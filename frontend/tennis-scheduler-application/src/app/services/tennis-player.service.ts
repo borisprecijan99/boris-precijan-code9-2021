@@ -11,15 +11,15 @@ export class TennisPlayerService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getAllTennisPlayers(): Observable<Object> {
+  getAllTennisPlayers(): Observable<Object> {
     return this.httpClient.get(this.BACKEND_BASE + "/getAll");
   }
 
-  public addTennisPlayer(): Observable<any> {
+  addTennisPlayer(): Observable<boolean> {
     return null;
   }
 
-  public removeTennisPlayer(): Observable<any> {
+  removeTennisPlayer(): Observable<boolean> {
     return null;
   }
 

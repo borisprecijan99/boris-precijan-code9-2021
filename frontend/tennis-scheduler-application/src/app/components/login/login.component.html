@@ -1,12 +1,12 @@
-<mat-card>
+<mat-card class="centered">
   <mat-card-title>Login</mat-card-title>
   <mat-card-content>
-    <form #form="ngForm" (ngSubmit)="onLogin(form)">
+    <form (ngSubmit)="onLogin()">
       <mat-form-field>
-        <input matInput placeholder="Username" type="text" name="username" ngModel>
+        <input matInput placeholder="Username" type="text" name="username" [(ngModel)]="username" required pattern="[a-z0-9]{1,8}">
       </mat-form-field>
       <mat-form-field>
-        <input matInput type="password" placeholder="Password" name="password" ngModel>
+        <input matInput type="password" placeholder="Password" name="password" [(ngModel)]="password" required pattern="[a-zA-Z0-9]{1,8}">
       </mat-form-field>
       <button type="submit" mat-raised-button color="primary">Login</button>
     </form>

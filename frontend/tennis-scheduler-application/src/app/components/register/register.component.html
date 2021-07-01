@@ -1,18 +1,18 @@
-<mat-card>
+<mat-card class="centered">
   <mat-card-title>Register</mat-card-title>
   <mat-card-content>
-    <form #form="ngForm" (ngSubmit)="onRegister(form)">
+    <form (ngSubmit)="onRegister()">
       <mat-form-field>
-        <input matInput placeholder="First name" type="text" name="firstName" ngModel>
+        <input matInput placeholder="First name" type="text" name="firstName" [(ngModel)]="user.firstName">
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Last name" type="text" name="lastName" ngModel>
+        <input matInput placeholder="Last name" type="text" name="lastName" [(ngModel)]="user.lastName">
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Username" type="text" name="username" ngModel>
+        <input matInput placeholder="Username" type="text" name="username" [(ngModel)]="user.username">
       </mat-form-field>
       <mat-form-field>
-        <input matInput type="password" placeholder="Password" name="password" ngModel>
+        <input matInput type="password" placeholder="Password" name="password" [(ngModel)]="user.password">
       </mat-form-field>
       <button type="submit" mat-raised-button color="primary">Register</button>
     </form>

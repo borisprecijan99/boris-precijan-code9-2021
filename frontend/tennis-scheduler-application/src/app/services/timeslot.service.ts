@@ -11,15 +11,15 @@ export class TimeslotService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getAllTimeslots(): Observable<any> {
+  getAllTimeslots(): Observable<any> {
     return null;
   }
 
-  public addTimeslot(): Observable<any> {
+  addTimeslot(): Observable<any> {
     return null;
   }
 
-  public removeTimeslot(): Observable<any> {
+  removeTimeslot(): Observable<any> {
     return null;
   }
 

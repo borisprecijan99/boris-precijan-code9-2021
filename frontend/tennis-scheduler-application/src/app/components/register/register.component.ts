@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {User} from "../../shared/model/user";
+import {AuthService} from "../../services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-register',
@@ -8,19 +11,23 @@ import {HttpClient} from "@angular/common/http";
 })
 export class RegisterComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient) { }
+  user: User = new User();
+
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
   }
 
-  onRegister(form) {
-    this.httpClient.post("http://localhost:8085/api/users/register", form.value).subscribe(resp => {
-      if (resp == true) {
-        console.log("Uspesno ste se registrovali! Cestitamo :D");
+  onRegister(): void {
+    this.authService.register(this.user).subscribe(response => {
+      if (response == true) {
+        console.log("You have successfully registered.");
+        this.router.navigate(["login"]);
       } else {
-        console.log("Zao nam je... Pokusajte ponovo.");
-      }
-    });
+        console.log("Username already exists.");
+      }}, error => {
+        console.log("Authentication service is not available, please try again later.");
+      });
   }
 
 }

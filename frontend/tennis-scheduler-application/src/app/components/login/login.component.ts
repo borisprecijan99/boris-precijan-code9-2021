@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import {AuthService} from "../../services/auth.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -8,21 +9,28 @@ import {HttpClient} from "@angular/common/http";
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private authService: AuthService, private router: Router) { }
+
+  username: string = "";
+  password: string = "";
 
   ngOnInit(): void {
   }
 
-  onLogin(form) {
-    this.httpClient.get("http://localhost:8081/api/tennis_players/getAll").subscribe(resp => {
-      console.log(resp);
+  onLogin(): void {
+    this.authService.login({
+      username: this.username,
+      password: this.password
+    }).subscribe(response => {
+      if (response.token == null) {
+        console.log("Invalid credentials!");
+      } else {
+        localStorage.setItem("token", response.token);
+        this.router.navigate([""]);
+      }
+    }, error => {
+      console.log("Authentication service is not available, please try again later!");
     });
-    /*this.httpClient.post("http://localhost:8085/api/users/login", form.value).subscribe((resp: any) => {
-      localStorage.setItem("token", resp.token);
-    }/*, error => {
-      console.log(error);
-      console.log("Auth-service is not available! Try again later...");
-    });*/
   }
 
 }

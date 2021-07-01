@@ -16,6 +16,12 @@ import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import {MatSelectModule} from "@angular/material/select";
+import {MatOptionModule} from "@angular/material/core";
+import { TennisPlayersComponent } from './components/tennis-players/tennis-players.component';
+import { TennisCourtsComponent } from './components/tennis-courts/tennis-courts.component';
+import { TimeslotsComponent } from './components/timeslots/timeslots.component';
+import { MyProfileComponent } from './components/my-profile/my-profile.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +29,11 @@ import {MatInputModule} from "@angular/material/input";
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    NavigationBarComponent
+    NavigationBarComponent,
+    TennisPlayersComponent,
+    TennisCourtsComponent,
+    TimeslotsComponent,
+    MyProfileComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +46,9 @@ import {MatInputModule} from "@angular/material/input";
     MatIconModule,
     MatCardModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatSelectModule,
+    MatOptionModule
   ],
   providers: [],
   bootstrap: [AppComponent]
