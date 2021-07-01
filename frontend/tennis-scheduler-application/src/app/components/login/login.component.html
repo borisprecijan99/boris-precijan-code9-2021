@@ -1,8 +1,14 @@
-<h1>Login</h1>
-<form>
-  <label>Username</label>
-  <input type="text"><br>
-  <label>Password</label>
-  <input type="password"><br>
-  <button>Login</button>
-</form>
+<mat-card>
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form #form="ngForm" (ngSubmit)="onLogin(form)">
+      <mat-form-field>
+        <input matInput placeholder="Username" type="text" name="username" ngModel>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" name="password" ngModel>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">Login</button>
+    </form>
+  </mat-card-content>
+</mat-card>

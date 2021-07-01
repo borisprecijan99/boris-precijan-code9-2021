@@ -5,21 +5,21 @@ import {Observable} from "rxjs";
 @Injectable({
   providedIn: 'root'
 })
-export class TennisCourtService {
+export class TimeslotService {
 
-  private BACKEND_BASE: string = "http://localhost:8082/api/tennis_courts";
+  private BACKEND_BASE: string = "http://localhost:8083/api/timeslots";
 
   constructor(private httpClient: HttpClient) { }
 
-  public getAllTennisCourts(): Observable<any> {
+  public getAllTimeslots(): Observable<any> {
     return null;
   }
 
-  public addTennisCourt(): Observable<any> {
+  public addTimeslot(): Observable<any> {
     return null;
   }
 
-  public removeTennisCourt(): Observable<any> {
+  public removeTimeslot(): Observable<any> {
     return null;
   }
 

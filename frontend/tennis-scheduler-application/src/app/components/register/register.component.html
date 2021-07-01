@@ -1,8 +1,20 @@
-<h1>Register</h1>
-<form>
-  <label>First name</label>
-  <label>Last name</label>
-  <label>Username</label>
-  <label>Password</label>
-  <button>Register</button>
-</form>
+<mat-card>
+  <mat-card-title>Register</mat-card-title>
+  <mat-card-content>
+    <form #form="ngForm" (ngSubmit)="onRegister(form)">
+      <mat-form-field>
+        <input matInput placeholder="First name" type="text" name="firstName" ngModel>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Last name" type="text" name="lastName" ngModel>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Username" type="text" name="username" ngModel>
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Password" name="password" ngModel>
+      </mat-form-field>
+      <button type="submit" mat-raised-button color="primary">Register</button>
+    </form>
+  </mat-card-content>
+</mat-card>
