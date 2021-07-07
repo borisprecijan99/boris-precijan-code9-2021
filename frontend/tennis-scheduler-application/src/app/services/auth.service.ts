@@ -12,15 +12,19 @@ export class AuthService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public login(credentials): Observable<any> {
+  login(credentials: any): Observable<any> {
     return this.httpClient.post(this.BACKEND_BASE + "/login", {
       username: credentials.username,
       password: credentials.password
     });
   }
 
-  public register(user: User): Observable<boolean> {
+  register(user: User): Observable<boolean> {
     return this.httpClient.post<boolean>(this.BACKEND_BASE + "/register", user);
+  }
+
+  logout(): Observable<boolean> {
+    return this.httpClient.get<boolean>(this.BACKEND_BASE + "/logout");
   }
 
 }

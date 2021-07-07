@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
 import {HttpClient} from "@angular/common/http";
+import {TennisPlayer} from "../shared/model/tennis-player";
 
 @Injectable({
   providedIn: 'root'
@@ -11,16 +12,16 @@ export class TennisPlayerService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllTennisPlayers(): Observable<Object> {
-    return this.httpClient.get(this.BACKEND_BASE + "/getAll");
+  getAllTennisPlayers(): Observable<TennisPlayer[]> {
+    return this.httpClient.get<TennisPlayer[]>(this.BACKEND_BASE + "/getAll");
   }
 
-  addTennisPlayer(): Observable<boolean> {
-    return null;
+  addTennisPlayer(tennisPlayer: TennisPlayer): Observable<boolean> {
+    return this.httpClient.post<boolean>(this.BACKEND_BASE + "/add", tennisPlayer);
   }
 
-  removeTennisPlayer(): Observable<boolean> {
-    return null;
+  removeTennisPlayer(tennisPlayer: TennisPlayer): Observable<boolean> {
+    return this.httpClient.delete<boolean>(this.BACKEND_BASE + "/remove/" + tennisPlayer.id);
   }
 
 }

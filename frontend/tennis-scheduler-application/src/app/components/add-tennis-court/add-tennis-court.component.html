@@ -1,0 +1,15 @@
+<mat-card>
+  <mat-card-title>Add tennis court</mat-card-title>
+  <mat-card-content>
+    <form #form="ngForm" (ngSubmit)="form.valid && onAddTennisCourt(form.value)">
+      <div class="row">
+        <mat-form-field class="col" appearance="fill">
+          <mat-label>Name</mat-label>
+          <input matInput type="text" name="name" ngModel pattern="[A-Z][A-Za-z0-9\\s\\.]+" required>
+        </mat-form-field>
+      </div>
+      <button type="submit" mat-raised-button color="primary">Add</button>
+    </form>
+  </mat-card-content>
+</mat-card>
+

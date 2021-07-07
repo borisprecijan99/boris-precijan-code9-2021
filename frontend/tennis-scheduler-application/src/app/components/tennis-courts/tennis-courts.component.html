@@ -1,1 +1,18 @@
-<p>tennis-courts works!</p>
+<div class="container centered">
+  <mat-card>
+    <mat-card-title>List of tennis courts</mat-card-title>
+    <mat-card-content>
+      <table class="table table-bordered">
+        <tr>
+          <th>Name</th>
+          <th *ngIf="isLoggedIn()"></th>
+        </tr>
+        <tr *ngFor="let tennisCourt of tennisCourts | async">
+          <td>{{tennisCourt.name}}</td>
+          <td *ngIf="isLoggedIn()" class="right-align-buttons"><button mat-raised-button color="primary" (click)="onRemoveTennisCourt(tennisCourt)">Remove</button></td>
+        </tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+  <app-add-tennis-court *ngIf="isLoggedIn()" (onAdd)="refreshList()"></app-add-tennis-court>
+</div>

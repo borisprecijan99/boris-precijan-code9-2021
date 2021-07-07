@@ -1,1 +1,24 @@
-<p>tennis-players works!</p>
+<div class="container centered">
+  <mat-card>
+    <mat-card-title>List of tennis players</mat-card-title>
+    <mat-card-content>
+      <table class="table table-bordered">
+        <tr>
+          <th>First name</th>
+          <th>Last name</th>
+          <th>Date of birth</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+        <tr *ngFor="let tennisPlayer of tennisPlayers | async">
+          <td>{{tennisPlayer.firstName}}</td>
+          <td>{{tennisPlayer.lastName}}</td>
+          <td>{{tennisPlayer.dateOfBirth}}</td>
+          <td>{{tennisPlayer.email}}</td>
+          <td class="right-align-buttons"><button mat-raised-button color="primary" (click)="onRemoveTennisPlayer(tennisPlayer)">Remove</button></td>
+        </tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+  <app-add-tennis-player (onAdd)="refreshList()"></app-add-tennis-player>
+</div>

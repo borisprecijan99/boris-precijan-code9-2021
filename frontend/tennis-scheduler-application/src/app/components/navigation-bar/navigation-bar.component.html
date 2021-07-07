@@ -2,10 +2,13 @@
   <mat-icon>sports_tennis</mat-icon>
   <span>Tennis Scheduler Application</span>
   <a mat-button routerLink="home">Home</a>
-  <a mat-button routerLink="">Tennis players</a>
-  <a mat-button routerLink="">Tennis courts</a>
-  <a mat-button routerLink="">Timeslots</a>
+  <a mat-button routerLink="players">Tennis players</a>
+  <a mat-button routerLink="courts">Tennis courts</a>
+  <a mat-button routerLink="timeslots">Timeslots</a>
   <span class="spacer"></span>
-  <a mat-button routerLink="">My Profile</a>
-  <a mat-button routerLink="login">Login</a>
+  <div *ngIf="isLoggedIn()">
+    <a mat-button routerLink="profile">My Profile</a>
+    <a mat-button (click)="logout()">Logout</a>
+  </div>
+  <a *ngIf="!isLoggedIn()" mat-button routerLink="login">Login</a>
 </mat-toolbar>

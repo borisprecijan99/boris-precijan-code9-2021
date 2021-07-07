@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {Timeslot} from "../shared/model/timeslot";
 
 @Injectable({
   providedIn: 'root'
@@ -11,16 +12,16 @@ export class TimeslotService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAllTimeslots(): Observable<any> {
-    return null;
+  getAllTimeslots(): Observable<Timeslot[]> {
+    return this.httpClient.get<Timeslot[]>(this.BACKEND_BASE + "/getAll");
   }
 
-  addTimeslot(): Observable<any> {
-    return null;
+  addTimeslot(timeslot: Timeslot): Observable<boolean> {
+    return this.httpClient.post<boolean>(this.BACKEND_BASE + "/add", timeslot);
   }
 
-  removeTimeslot(): Observable<any> {
-    return null;
+  removeTimeslot(timeslot: Timeslot): Observable<boolean> {
+    return this.httpClient.delete<boolean>(this.BACKEND_BASE + "/remove/" + timeslot.id);
   }
 
 }

@@ -1,0 +1,25 @@
+.right-align-buttons {
+  text-align: right;
+}
+
+mat-card-content {
+  overflow-y: scroll;
+  max-height: 250px;
+}
+
+mat-card-title {
+  text-align: center;
+}
+
+mat-form-field {
+  display: block;
+}
+
+.centered {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}

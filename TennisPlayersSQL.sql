@@ -13,7 +13,7 @@ CREATE TABLE `tennis_player` (
   UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
-INSERT INTO `tennis_player` VALUES (1, 'Novak', 'Djokovic', '1987-05-22', 'noole1987@gmail.com'),
+INSERT INTO `tennis_player` VALUES (1, 'Novak', 'Djokovic', '1987-05-22', 'nole1987@gmail.com'),
 									(2, 'Serena', 'Williams', '1981-11-26', 'serena@gmail.com'),
                                     (3, 'Rafael', 'Nadal', '1986-06-03', 'nadal@gmail.com'),
                                     (4, 'Roger', 'Federer', '1981-08-08', 'federer@gmail.com'),
