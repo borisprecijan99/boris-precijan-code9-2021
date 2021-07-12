@@ -7,6 +7,7 @@ import code9.project.timeslotservice.model.TimeslotEntity;
 import code9.project.timeslotservice.repository.PaidForTennisPlayerRepository;
 import code9.project.timeslotservice.repository.TimeslotRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
@@ -75,7 +76,8 @@ public class TimeslotServiceImpl implements TimeslotService {
 
     @Override
     public List<TimeslotDto> getAllTimeslots() {
-        return timeslotMapper.toTimeslotDtos(timeslotRepository.findAllByOrderByDateOfReservation());
+        List<TimeslotEntity> timeslots = timeslotRepository.findAll(Sort.by("dateOfReservation").and(Sort.by("timeOfReservation")));
+        return timeslotMapper.toTimeslotDtos(timeslots);
     }
 
 }

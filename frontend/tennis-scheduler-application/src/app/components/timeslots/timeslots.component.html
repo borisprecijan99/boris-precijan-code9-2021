@@ -11,14 +11,14 @@
           <th>Duration</th>
           <th></th>
         </tr>
-        <!--<tr *ngFor="let timeslot of timeslots | async">
-          <td>{{timeslot.tennisPlayer.firstName}} {{timeslot.tennisPlayer.lastName}}</td>
-          <td>{{timeslot.tennisCourt.name}}</td>
+        <tr *ngFor="let timeslot of timeslots | async">
+          <td>{{getTennisPlayer(timeslot.tennisPlayerId)}}</td>
+          <td>{{getTennisCourt(timeslot.tennisCourtId)}}</td>
           <td>{{timeslot.dateOfReservation}}</td>
           <td>{{timeslot.timeOfReservation}}</td>
           <td>{{timeslot.duration}}</td>
-          <td class="right-align-buttons"><button mat-raised-button color="primary">Remove</button></td>
-        </tr>-->
+          <td class="right-align-buttons"><button mat-raised-button color="primary" (click)="onRemoveTimeslot(timeslot)">Remove</button></td>
+        </tr>
       </table>
     </mat-card-content>
   </mat-card>

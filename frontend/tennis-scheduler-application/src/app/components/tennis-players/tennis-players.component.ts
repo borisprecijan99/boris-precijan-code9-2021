@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {TennisPlayerService} from "../../services/tennis-player.service";
 import {TennisPlayer} from "../../shared/model/tennis-player";
-import {Observable, Subject} from "rxjs";
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-tennis-players',

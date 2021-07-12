@@ -11,7 +11,7 @@ CREATE TABLE `tennis_court` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 INSERT INTO `tennis_court` VALUES (1, 'Arthur Ashe Stadium'),
-								  (2, 'Wimbledon Centre Court'),
+				  (2, 'Wimbledon Centre Court'),
                                   (3, 'Court Philippe Chatrier'),
                                   (4, 'O2 Arena'),
                                   (5, 'Indian Wells Tennis Garden');
