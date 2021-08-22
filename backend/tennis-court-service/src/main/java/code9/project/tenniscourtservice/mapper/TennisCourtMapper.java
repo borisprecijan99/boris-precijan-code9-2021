@@ -8,7 +8,9 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface TennisCourtMapper {
+
     TennisCourtDto toTennisCourtDto(TennisCourtEntity tennisCourtEntity);
     TennisCourtEntity toTennisCourtEntity(TennisCourtDto tennisCourtDto);
     List<TennisCourtDto> toTennisCourtDtos(List<TennisCourtEntity> tennisCourtEntityList);
+
 }

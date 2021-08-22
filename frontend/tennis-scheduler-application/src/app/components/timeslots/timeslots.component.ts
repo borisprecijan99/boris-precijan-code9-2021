@@ -38,7 +38,7 @@ export class TimeslotsComponent implements OnInit {
         console.log("Timeslot with id=" + timeslot.id + " successfully removed.");
         this.refreshList();
       } else {
-
+        console.log("Error removing timeslot with id=" + timeslot.id + ".");
       }
     }, error => {
       console.log(error);
@@ -61,6 +61,12 @@ export class TimeslotsComponent implements OnInit {
     let tennisCourt: TennisCourt = this.tennisCourts.find(tc => tc.id == tennisCourtId);
     tennisCourtString = tennisCourt.name;
     return tennisCourtString;
+  }
+
+  isLoggedIn(): boolean {
+    if (localStorage.getItem("token"))
+      return true;
+    return false;
   }
 
 }

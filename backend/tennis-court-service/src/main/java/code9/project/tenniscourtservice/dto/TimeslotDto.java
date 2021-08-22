@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 
 public class TimeslotDto {
+
     private int tennisPlayerId;
     private int tennisCourtId;
     private LocalDate dateOfReservation;
@@ -58,4 +59,5 @@ public class TimeslotDto {
     public void setId(int id) {
         this.id = id;
     }
+
 }

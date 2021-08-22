@@ -6,6 +6,7 @@ import java.util.List;
 @Entity
 @Table(name = "payment_method", schema = "timeslots")
 public class PaymentMethodEntity {
+
     private int id;
     private String name;
     private List<PaidForTennisPlayerEntity> paidForTennisPlayers;
@@ -58,5 +59,6 @@ public class PaymentMethodEntity {
     public void setPaidForTennisPlayers(List<PaidForTennisPlayerEntity> paidForTennisPlayers) {
         this.paidForTennisPlayers = paidForTennisPlayers;
     }
+
 }
 

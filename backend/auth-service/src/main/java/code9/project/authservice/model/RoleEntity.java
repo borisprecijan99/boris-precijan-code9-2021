@@ -6,6 +6,7 @@ import java.util.List;
 @Entity
 @Table(name = "role", schema = "users")
 public class RoleEntity {
+
     private int id;
     private String name;
     private List<UserEntity> users;
@@ -59,4 +60,5 @@ public class RoleEntity {
     public void setUsers(List<UserEntity> users) {
         this.users = users;
     }
+
 }

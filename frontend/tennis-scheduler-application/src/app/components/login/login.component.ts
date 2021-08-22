@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
       if (response.token == null) {
         console.log("Invalid credentials!");
       } else {
+        console.log("Successfully logged in.");
         localStorage.setItem("token", response.token);
         this.router.navigate([""]);
       }

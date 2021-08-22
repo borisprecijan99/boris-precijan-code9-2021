@@ -3,6 +3,7 @@ package code9.project.tennisplayerservice.dto;
 import java.time.LocalDate;
 
 public class TennisPlayerDto {
+
     private int id;
     private String firstName;
     private String lastName;
@@ -48,4 +49,5 @@ public class TennisPlayerDto {
     public void setEmail(String email) {
         this.email = email;
     }
+
 }

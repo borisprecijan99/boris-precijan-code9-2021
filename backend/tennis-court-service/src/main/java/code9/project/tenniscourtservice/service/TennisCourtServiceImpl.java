@@ -42,4 +42,5 @@ public class TennisCourtServiceImpl implements TennisCourtService {
     public List<TennisCourtDto> getAllTennisCourts() {
         return tennisCourtMapper.toTennisCourtDtos(tennisCourtRepository.findAllByOrderByName());
     }
+
 }

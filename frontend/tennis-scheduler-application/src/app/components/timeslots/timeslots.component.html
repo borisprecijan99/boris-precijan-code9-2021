@@ -17,7 +17,7 @@
           <td>{{timeslot.dateOfReservation}}</td>
           <td>{{timeslot.timeOfReservation}}</td>
           <td>{{timeslot.duration}}</td>
-          <td class="right-align-buttons"><button mat-raised-button color="primary" (click)="onRemoveTimeslot(timeslot)">Remove</button></td>
+          <td *ngIf="isLoggedIn()" class="right-align-buttons"><button mat-raised-button color="primary" (click)="onRemoveTimeslot(timeslot)">Remove</button></td>
         </tr>
       </table>
     </mat-card-content>

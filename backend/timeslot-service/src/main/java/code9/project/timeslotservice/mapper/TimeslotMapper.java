@@ -8,7 +8,9 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface TimeslotMapper {
+
     TimeslotDto toTimeslotDto(TimeslotEntity timeslotEntity);
     TimeslotEntity toTimeslotEntity(TimeslotDto timeslotDto);
     List<TimeslotDto> toTimeslotDtos(List<TimeslotEntity> timeslotEntityList);
+
 }

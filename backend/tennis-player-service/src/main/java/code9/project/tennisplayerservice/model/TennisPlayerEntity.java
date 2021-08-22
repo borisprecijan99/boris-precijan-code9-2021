@@ -6,6 +6,7 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "tennis_player", schema = "tennis_players")
 public class TennisPlayerEntity {
+
     private int id;
     private String firstName;
     private String lastName;
@@ -88,4 +89,5 @@ public class TennisPlayerEntity {
         result = 31 * result + (email != null ? email.hashCode() : 0);
         return result;
     }
+
 }

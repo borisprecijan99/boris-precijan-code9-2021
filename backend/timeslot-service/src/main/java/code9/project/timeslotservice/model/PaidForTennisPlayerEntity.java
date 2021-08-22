@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "paid_for_tennis_player", schema = "timeslots")
 public class PaidForTennisPlayerEntity {
+
     private int tennisPlayerId;
     private PaymentMethodEntity paymentMethod;
 
@@ -44,5 +45,6 @@ public class PaidForTennisPlayerEntity {
     public void setPaymentMethod(PaymentMethodEntity paymentMethod) {
         this.paymentMethod = paymentMethod;
     }
+
 }
 

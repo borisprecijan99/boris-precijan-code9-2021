@@ -9,7 +9,9 @@ import java.util.List;
 
 @Mapper(componentModel = "spring")
 public interface TennisPlayerMapper {
+
     TennisPlayerDto toTennisPlayerDto(TennisPlayerEntity tennisPlayerEntity);
     TennisPlayerEntity toTennisPlayerEntity(TennisPlayerDto tennisPlayerDto);
     List<TennisPlayerDto> toTennisPlayerDtos(List<TennisPlayerEntity> tennisPlayerEntityList);
+
 }

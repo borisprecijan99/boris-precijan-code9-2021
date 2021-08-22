@@ -22,7 +22,11 @@ export class AddTennisPlayerComponent implements OnInit {
       if (response == true) {
         console.log("Tennis player added successfully.");
         this.onAdd.emit();
+      } else {
+        console.log("Error adding tennis player.");
       }
+    }, error => {
+      console.log("Tennis player service is not available, please try again later!");
     });
   }
 

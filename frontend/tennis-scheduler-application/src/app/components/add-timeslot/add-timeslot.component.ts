@@ -39,8 +39,12 @@ export class AddTimeslotComponent implements OnInit {
       if (response == true) {
         console.log("Timeslot added successfully.");
         this.onAdd.emit();
+      } else {
+        console.log("Error adding timeslot.");
       }
-    })
+    }, error => {
+      console.log("Timeslot service is not available, please try again later!");
+    });
   }
 
   onChangeTennisPlayerId(timeslot: Timeslot): void {

@@ -8,5 +8,7 @@ import java.util.List;
 
 @Repository
 public interface TennisPlayerRepository extends JpaRepository<TennisPlayerEntity, Integer> {
+
     List<TennisPlayerEntity> findAllByOrderByLastName();
+
 }

@@ -11,7 +11,6 @@ import {Observable} from "rxjs";
 export class TennisPlayersComponent implements OnInit {
 
   tennisPlayers: Observable<TennisPlayer[]>;
-  isTennisPlayerServiceAvailable: boolean;
 
   constructor(private tennisPlayerService: TennisPlayerService) { }
 
@@ -26,12 +25,18 @@ export class TennisPlayersComponent implements OnInit {
   onRemoveTennisPlayer(tennisPlayer: TennisPlayer): void {
     this.tennisPlayerService.removeTennisPlayer(tennisPlayer).subscribe(response => {
       if (response == true) {
-        console.log("Tennis player with id=" + tennisPlayer.id + " was successfully removed.");
+        console.log("Tennis player with id=" + tennisPlayer.id + " successfully removed.");
         this.refreshList();
       } else {
-
+        console.log("Error removing tennis player with id=" + tennisPlayer.id + ".");
       }
     })
+  }
+
+  isLoggedIn(): boolean {
+    if (localStorage.getItem("token"))
+      return true;
+    return false;
   }
 
 }

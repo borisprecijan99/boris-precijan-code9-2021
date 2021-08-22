@@ -9,6 +9,8 @@ import java.util.List;
 
 @Repository
 public interface TimeslotRepository extends JpaRepository<TimeslotEntity, Integer> {
+
     int countTimeslotEntityByTennisPlayerId(int tennisPlayerId);
     List<TimeslotEntity> findAllByDateOfReservationAndTennisCourtId(LocalDate dateOfReservation, int tennisCourtId);
+
 }

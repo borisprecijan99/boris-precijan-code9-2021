@@ -15,7 +15,7 @@
           <td>{{tennisPlayer.lastName}}</td>
           <td>{{tennisPlayer.dateOfBirth}}</td>
           <td>{{tennisPlayer.email}}</td>
-          <td class="right-align-buttons"><button mat-raised-button color="primary" (click)="onRemoveTennisPlayer(tennisPlayer)">Remove</button></td>
+          <td *ngIf="isLoggedIn()" class="right-align-buttons"><button mat-raised-button color="primary" (click)="onRemoveTennisPlayer(tennisPlayer)">Remove</button></td>
         </tr>
       </table>
     </mat-card-content>

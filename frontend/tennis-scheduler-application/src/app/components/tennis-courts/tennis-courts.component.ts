@@ -11,7 +11,6 @@ import {Observable} from "rxjs";
 export class TennisCourtsComponent implements OnInit {
 
   tennisCourts: Observable<TennisCourt[]>;
-  isTennisCourtServiceAvailable: boolean;
 
   constructor(private tennisCourtService: TennisCourtService) { }
 
@@ -26,12 +25,12 @@ export class TennisCourtsComponent implements OnInit {
   onRemoveTennisCourt(tennisCourt: TennisCourt): void {
     this.tennisCourtService.removeTennisCourt(tennisCourt).subscribe(response => {
       if (response == true) {
-        console.log("Tennis court with id=" + tennisCourt.id + " was successfully removed.");
+        console.log("Tennis court with id=" + tennisCourt.id + " successfully removed.");
         this.refreshList();
       } else {
-
+        console.log("Error removing tennis court with id=" + tennisCourt.id + ".");
       }
-    })
+    });
   }
 
   isLoggedIn(): boolean {

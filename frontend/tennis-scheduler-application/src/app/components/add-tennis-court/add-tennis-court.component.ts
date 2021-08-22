@@ -22,7 +22,11 @@ export class AddTennisCourtComponent implements OnInit {
       if (response == true) {
         console.log("Tennis court added successfully.");
         this.onAdd.emit();
+      } else {
+        console.log("Error adding tennis court.");
       }
+    }, error => {
+      console.log("Tennis court service is not available, please try again later!");
     });
   }
 

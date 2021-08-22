@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "user", schema = "users")
 public class UserEntity {
+
     private int id;
     private String firstName;
     private String lastName;
@@ -98,4 +99,5 @@ public class UserEntity {
     public void setRole(RoleEntity role) {
         this.role = role;
     }
+
 }

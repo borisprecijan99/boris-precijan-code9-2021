@@ -8,5 +8,7 @@ import java.util.List;
 
 @Repository
 public interface TennisCourtRepository extends JpaRepository<TennisCourtEntity, Integer> {
+
     List<TennisCourtEntity> findAllByOrderByName();
+
 }

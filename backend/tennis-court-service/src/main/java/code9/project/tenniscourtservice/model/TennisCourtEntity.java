@@ -49,4 +49,5 @@ public class TennisCourtEntity {
         result = 31 * result + id;
         return result;
     }
+
 }

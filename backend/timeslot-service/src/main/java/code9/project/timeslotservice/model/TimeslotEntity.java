@@ -7,6 +7,7 @@ import java.time.LocalTime;
 @Entity
 @Table(name = "timeslot", schema = "timeslots")
 public class TimeslotEntity {
+
     private int tennisPlayerId;
     private int tennisCourtId;
     private LocalDate dateOfReservation;
@@ -103,4 +104,5 @@ public class TimeslotEntity {
         result = 31 * result + id;
         return result;
     }
+
 }

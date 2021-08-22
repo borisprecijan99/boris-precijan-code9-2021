@@ -1,6 +1,7 @@
 package code9.project.tenniscourtservice.dto;
 
 public class TennisCourtDto {
+
     private String name;
     private int id;
 
@@ -19,4 +20,5 @@ public class TennisCourtDto {
     public void setId(int id) {
         this.id = id;
     }
+
 }
