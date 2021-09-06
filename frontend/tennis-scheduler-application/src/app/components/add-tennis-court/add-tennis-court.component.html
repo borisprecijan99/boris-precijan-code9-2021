@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-title>Add tennis court</mat-card-title>
   <mat-card-content>
-    <form #form="ngForm" (ngSubmit)="form.valid && onAddTennisCourt(form.value)">
+    <form #form="ngForm" (ngSubmit)="form.valid && onAddTennisCourt(form)">
       <div class="row">
         <mat-form-field class="col justify-content-center" appearance="fill">
           <mat-label>Name</mat-label>

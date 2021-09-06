@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-title>Add tennis player</mat-card-title>
   <mat-card-content>
-    <form #form="ngForm" (ngSubmit)="form.valid && onAddTennisPlayer(form.value)">
+    <form #form="ngForm" (ngSubmit)="form.valid && onAddTennisPlayer(form)">
       <div class="row">
         <mat-form-field class="col-3 justify-content-center" appearance="fill">
           <mat-label>First name</mat-label>
@@ -17,7 +17,7 @@
         </mat-form-field>
         <mat-form-field class="col-3 justify-content-center" appearance="fill">
           <mat-label>Email</mat-label>
-          <input matInput type="email" name="email" ngModel required>
+          <input matInput type="email" name="email" pattern="[a-zA-Z0-9\.]+@[a-zA-Z0-9\.]+\.[a-zA-Z]{2,6}" ngModel required>
         </mat-form-field>
       </div>
       <button type="submit" mat-raised-button color="primary">Add</button>

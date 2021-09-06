@@ -1,11 +1,11 @@
 <mat-card>
   <mat-card-title>Add timeslot</mat-card-title>
   <mat-card-content>
-    <form (ngSubmit)="onAddTimeslot(timeslot)">
+    <form #form="ngForm" (ngSubmit)="form.valid && onAddTimeslot(form)">
       <div class="row">
         <mat-form-field class="col-3 justify-content-center" appearance="fill">
           <mat-label>Tennis player</mat-label>
-          <mat-select name="tennisPlayerId" [(ngModel)]="newTennisPlayerId" (ngModelChange)="onChangeTennisPlayerId(timeslot)">
+          <mat-select name="tennisPlayerId" [(ngModel)]="newTennisPlayerId" (ngModelChange)="onChangeTennisPlayerId(form.value)" required>
             <mat-option *ngFor="let tennisPlayer of tennisPlayers | async" value="{{tennisPlayer.id}}">
               {{tennisPlayer.firstName}} {{tennisPlayer.lastName}}
             </mat-option>
@@ -13,7 +13,7 @@
         </mat-form-field>
         <mat-form-field class="col-3 justify-content-center" appearance="fill">
           <mat-label>Tennis court</mat-label>
-          <mat-select name="tennisCourtId" [(ngModel)]="newTennisCourtId" (ngModelChange)="onChangeTennisCourtId(timeslot)">
+          <mat-select name="tennisCourtId" [(ngModel)]="newTennisCourtId" (ngModelChange)="onChangeTennisCourtId(form.value)" required>
             <mat-option *ngFor="let tennisCourt of tennisCourts | async" value="{{tennisCourt.id}}">
               {{tennisCourt.name}}
             </mat-option>
@@ -21,16 +21,16 @@
         </mat-form-field>
         <mat-form-field class="col-3 justify-content-center" appearance="fill">
           <mat-label>Date of reservation</mat-label>
-          <input matInput name="dateOfReservation" type="date" required [(ngModel)]="timeslot.dateOfReservation">
+          <input matInput name="dateOfReservation" type="date" required ngModel>
         </mat-form-field>
         <mat-form-field class="col-3 justify-content-center" appearance="fill">
           <mat-label>Time of reservation</mat-label>
-          <input matInput name="timeOfReservation" type="time" required [(ngModel)]="timeslot.timeOfReservation">
+          <input matInput name="timeOfReservation" type="time" required ngModel>
         </mat-form-field>
       </div>
       <div class="row">
         <mat-label>Duration</mat-label>
-        <mat-slider color="primary" name="duration" [(ngModel)]="timeslot.duration"
+        <mat-slider color="primary" name="duration" [(ngModel)]="duration"
           thumbLabel
           step="1"
           min="30"

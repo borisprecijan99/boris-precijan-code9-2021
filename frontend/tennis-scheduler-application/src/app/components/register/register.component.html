@@ -1,7 +1,7 @@
 <mat-card class="centered">
   <mat-card-title>Register</mat-card-title>
   <mat-card-content>
-    <form (ngSubmit)="onRegister()">
+    <form #form="ngForm" (ngSubmit)="form.valid && onRegister()">
       <mat-form-field appearance="fill">
         <mat-label>First name</mat-label>
         <input matInput type="text" name="firstName" [(ngModel)]="user.firstName" required pattern="[A-Z][a-z]+">

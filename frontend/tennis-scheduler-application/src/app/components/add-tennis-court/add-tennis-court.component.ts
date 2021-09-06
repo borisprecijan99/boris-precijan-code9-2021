@@ -17,10 +17,12 @@ export class AddTennisCourtComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onAddTennisCourt(tennisCourt: TennisCourt): void {
+  onAddTennisCourt(form): void {
+    let tennisCourt: TennisCourt = form.value;
     this.tennisCourtService.addTennisCourt(tennisCourt).subscribe(response => {
       if (response == true) {
         console.log("Tennis court added successfully.");
+        form.resetForm();
         this.onAdd.emit();
       } else {
         console.log("Error adding tennis court.");

@@ -14,9 +14,9 @@ import {Timeslot} from "../../shared/model/timeslot";
 })
 export class AddTimeslotComponent implements OnInit {
 
-  timeslot: Timeslot;
   newTennisPlayerId: number;
   newTennisCourtId: number;
+  duration: number;
 
   tennisPlayers: Observable<TennisPlayer[]>;
   tennisCourts: Observable<TennisCourt[]>
@@ -28,16 +28,17 @@ export class AddTimeslotComponent implements OnInit {
               private timeslotService: TimeslotService) { }
 
   ngOnInit(): void {
-    this.timeslot = new Timeslot();
-    this.timeslot.duration = 30;
+    this.duration = 30;
     this.tennisPlayers = this.tennisPlayerService.getAllTennisPlayers();
     this.tennisCourts = this.tennisCourtService.getAllTennisCourts();
   }
 
-  onAddTimeslot(timeslot: Timeslot): void {
+  onAddTimeslot(form): void {
+    let timeslot: Timeslot = form.value;
     this.timeslotService.addTimeslot(timeslot).subscribe(response => {
       if (response == true) {
         console.log("Timeslot added successfully.");
+        form.resetForm();
         this.onAdd.emit();
       } else {
         console.log("Error adding timeslot.");

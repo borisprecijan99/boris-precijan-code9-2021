@@ -14,13 +14,14 @@ export class AddTennisPlayerComponent implements OnInit {
 
   constructor(private tennisPlayerService: TennisPlayerService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
 
-  onAddTennisPlayer(tennisPlayer: TennisPlayer): void {
+  onAddTennisPlayer(form): void {
+    let tennisPlayer: TennisPlayer = form.value;
     this.tennisPlayerService.addTennisPlayer(tennisPlayer).subscribe(response => {
       if (response == true) {
         console.log("Tennis player added successfully.");
+        form.resetForm();
         this.onAdd.emit();
       } else {
         console.log("Error adding tennis player.");
